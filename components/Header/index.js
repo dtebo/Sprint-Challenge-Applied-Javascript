@@ -29,7 +29,7 @@ function Header(title) {
 
     const temp = document.createElement('span');
     temp.classList.add('temp');
-    temp.textContent = '98&#176;';
+    temp.textContent = '98\u00B0';
 
     header.appendChild(dateSpan);
     header.appendChild(t);
