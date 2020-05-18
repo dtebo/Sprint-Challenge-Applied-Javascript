@@ -12,9 +12,11 @@
 // and append it to the DOM inside the div.header-container
 
 function Header(title) {
+    // Parent header element
     const header = document.createElement('div');
     header.classList.add('header');
 
+    // Date element
     const dateSpan = document.createElement('span');
     dateSpan.classList.add('date');
 
@@ -27,10 +29,12 @@ function Header(title) {
     const t = document.createElement('h1');
     t.textContent = title;
 
+    // Temperature element
     const temp = document.createElement('span');
     temp.classList.add('temp');
     temp.textContent = '98\u00B0';
 
+    // Append the child elements
     header.appendChild(dateSpan);
     header.appendChild(t);
     header.appendChild(temp);
