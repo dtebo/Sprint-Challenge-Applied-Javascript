@@ -26,8 +26,17 @@ function Carousel(imgs){
   left.classList.add('left-button');
   left.textContent = '<';
 
+  let idx = 0;
+
   left.addEventListener('click', (e) => {
-    
+    if(idx !== 0){
+      idx -= 1;
+    }
+    else{
+      idx = imgs.length - 1;
+    }
+
+    rotate(idx);
   });
 
   carousel.appendChild(left);
@@ -45,7 +54,14 @@ function Carousel(imgs){
   right.textContent = '>';
 
   right.addEventListener('click', (e) => {
-    console.log('You went forward!');
+    if(idx === imgs.length - 1){
+      idx = 0;
+    }
+    else{
+      idx += 1;
+    }
+
+    rotate(idx);
   });
 
   carousel.appendChild(right);
@@ -60,12 +76,15 @@ const imgLocations = [
   './assets/carousel/turntable.jpeg'
 ];
 
-function goBack(){
-  // Go back
-}
+function rotate(idx){
+  // toggle the img-open class to shut off the current image
+  currentImage.classList.toggle('img-open');
 
-function goForward(){
-  // Go forward
+  // get the next image
+  currentImage = document.querySelectorAll('.carousel-img')[idx];
+
+  // toggle the img-open class on the next image
+  currentImage.classList.toggle('img-open');
 }
 
 // Parent container
@@ -77,4 +96,4 @@ cont.appendChild(crsl);
 
 // Display the first image
 let currentImage = document.querySelector('.carousel-img');
-currentImage.classList.add('img-open');
+currentImage.classList.toggle('img-open');
