@@ -204,7 +204,7 @@ body {
 }
 .cards-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: stretch;
   align-items: none;
   flex-direction: row;
   width: 100%;
@@ -301,5 +301,4 @@ body {
 }
 .carousel img {
   width: 100%;
-  display: none;
 }
