@@ -17,7 +17,12 @@ function Header(title) {
 
     const dateSpan = document.createElement('span');
     dateSpan.classList.add('date');
-    dateSpan.textContent = Date.now();
+
+    // Get the current date and format it
+    const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUNE", "JULY", "AUG", "SEP", "OCT", "NOV", "DEC"];
+    const current_date = new Date();
+    const formatted_date = `${months[current_date.getMonth()]} ${current_date.getDate()}, ${current_date.getFullYear()}`;
+    dateSpan.textContent = formatted_date;
 
     const t = document.createElement('h1');
     t.textContent = title;
