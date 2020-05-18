@@ -18,36 +18,27 @@
   </div>
 */
 function Carousel(imgs){
-  let current_index = 0;
-
   const carousel = document.createElement('div');
   carousel.classList.add('carousel');
-
-  let current_img = imgs[current_index];
-
-  const img_element = document.createElement('img');
   
+
   const left = document.createElement('div');
   left.classList.add('left-button');
   left.textContent = '<';
 
   left.addEventListener('click', (e) => {
-    if(current_index !== 0){
-      current_index -= 1;
-    }
-    else {
-      current_index = imgs.length - 1;
-    }
-
-    current_img = imgs[current_index];
+    
   });
 
   carousel.appendChild(left);
 
-  img_element.src = current_img;
+  imgs.forEach((image) => {
+    const img = document.createElement('img');
+    img.src = image;
+    img.classList.add('carousel-img');
 
-  // Append the current image
-  carousel.appendChild(img_element);
+    carousel.appendChild(img);
+  });
 
   const right = document.createElement('div');
   right.classList.add('right-button');
@@ -62,7 +53,6 @@ function Carousel(imgs){
   return carousel;
 }
 
-// List of images
 const imgLocations = [
   './assets/carousel/computer.jpeg',
   './assets/carousel/mountains.jpeg',
@@ -70,9 +60,21 @@ const imgLocations = [
   './assets/carousel/turntable.jpeg'
 ];
 
+function goBack(){
+  // Go back
+}
+
+function goForward(){
+  // Go forward
+}
+
 // Parent container
 const cont = document.querySelector('.carousel-container');
 
 const crsl = Carousel(imgLocations);
 
 cont.appendChild(crsl);
+
+// Display the first image
+let currentImage = document.querySelector('.carousel-img');
+currentImage.classList.add('img-open');
