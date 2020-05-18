@@ -292,16 +292,20 @@ body {
 .carousel .left-button {
   top: 50%;
   left: 25px;
+  line-height: 2.7rem;
   transform: translate(0, -50%);
 }
 .carousel .right-button {
   top: 50%;
   right: 25px;
+  line-height: 2.7rem;
   transform: translate(0, -50%);
 }
 .carousel img {
   width: 100%;
   display: none;
+  transition: all 0.5s ease-in;
+  left: 100%;
 }
 .carousel .img-open {
   display: block;

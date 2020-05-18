@@ -64,6 +64,17 @@ function Carousel(imgs){
     rotate(idx);
   });
 
+  setInterval((e) => {
+    if(idx === imgs.length - 1){
+      idx = 0;
+    }
+    else{
+      idx += 1;
+    }
+
+    rotate(idx);
+  }, 4000);
+
   carousel.appendChild(right);
 
   return carousel;
