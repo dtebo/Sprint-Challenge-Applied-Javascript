@@ -11,4 +11,40 @@
 // Use your function to create a header
 // and append it to the DOM inside the div.header-container
 
-function Header() {}
+function Header(title) {
+    // Parent header element
+    const header = document.createElement('div');
+    header.classList.add('header');
+
+    // Date element
+    const dateSpan = document.createElement('span');
+    dateSpan.classList.add('date');
+
+    // Get the current date and format it
+    const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUNE", "JULY", "AUG", "SEP", "OCT", "NOV", "DEC"];
+    const current_date = new Date();
+    const formatted_date = `${months[current_date.getMonth()]} ${current_date.getDate()}, ${current_date.getFullYear()}`;
+    dateSpan.textContent = formatted_date;
+
+    const t = document.createElement('h1');
+    t.textContent = title;
+
+    // Temperature element
+    const temp = document.createElement('span');
+    temp.classList.add('temp');
+    temp.textContent = '98\u00B0';
+
+    // Append the child elements
+    header.appendChild(dateSpan);
+    header.appendChild(t);
+    header.appendChild(temp);
+
+    return header;
+}
+
+
+const container = document.querySelector('.header-container');
+
+const headerElement = Header('Lambda Times');
+
+container.appendChild(headerElement);
